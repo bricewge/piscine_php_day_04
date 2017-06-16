@@ -20,11 +20,13 @@ if (file_exists($passwd_file)) {
     }
 }
 if (!file_exists("../private/"))
-    mkdir("../private/", 0700);
+    @mkdir("../private/", 0700);
 
 $accounts[] = array("login" => $login, "passwd" => $passwd);
 $accounts = serialize($accounts);
-file_put_contents($passwd_file, $accounts);
-echo "OK\n";
+if (@file_put_contents($passwd_file, $accounts))
+    echo "OK\n";
+else
+    echo "ERROR\n";
 
 ?>
