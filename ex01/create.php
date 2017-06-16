@@ -1,6 +1,6 @@
 <?PHP
 
-if ($_POST["submit"] !== "OK" or $_POST["passwd"] == NULL) {
+if ($_POST["submit"] !== "OK" or $_POST["login"] == NULL or $_POST["passwd"] == NULL) {
     echo "ERROR\n";
     return;
 }
